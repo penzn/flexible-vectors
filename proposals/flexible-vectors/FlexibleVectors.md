@@ -187,7 +187,7 @@ def S.lshr(a, x):
     return result
 ```
 
-## Integer arithmetic
+### Non-saturating Integer arithmetic
 
 Wrapping integer arithmetic discards the high bits of the result.
 
@@ -284,7 +284,7 @@ def S.UnsignedSaturate(x):
     return x
 ```
 
-### Saturating integer addition
+#### Saturating integer addition
 * `vec.i8.add_sat_s(a: vec.i8, b: vec.i8) -> vec.i8`
 * `vec.i8.add_sat_u(a: vec.i8, b: vec.i8) -> vec.i8`
 * `vec.i16.add_sat_s(a: vec.i16, b: vec.i16) -> vec.i16`
@@ -308,7 +308,7 @@ def S.add_sat_u(a, b):
     return S.lanewise_binary(addsat, S.AsUnsigned(a), S.AsUnsigned(b))
 ```
 
-### Saturating integer subtraction
+#### Saturating integer subtraction
 * `vec.i8.sub_sat_s(a: vec.i8, b: vec.i8) -> vec.i8`
 * `vec.i8.sub_sat_u(a: vec.i8, b: vec.i8) -> vec.i8`
 * `vec.i16.sub_sat_s(a: vec.i16, b: vec.i16) -> vec.i16`
@@ -332,7 +332,7 @@ def S.sub_sat_u(a, b):
     return S.lanewise_binary(subsat, S.AsUnsigned(a), S.AsUnsigned(b))
 ```
 
-### Lane-wise integer minimum
+#### Lane-wise integer minimum
 * `vec.i8.min_s(a: vec.i8, b: vec.i8) -> vec.i8`
 * `vec.i8.min_u(a: vec.i8, b: vec.i8) -> vec.i8`
 * `vec.i16.min_s(a: vec.i16, b: vec.i16) -> vec.i16`
@@ -350,7 +350,7 @@ def S.min(a, b):
     return S.lanewise_binary(min, a, b)
 ```
 
-### Lane-wise integer maximum
+#### Lane-wise integer maximum
 * `vec.i8.max_s(a: vec.i8, b: vec.i8) -> vec.i8`
 * `vec.i8.max_u(a: vec.i8, b: vec.i8) -> vec.i8`
 * `vec.i16.max_s(a: vec.i16, b: vec.i16) -> vec.i16`
@@ -368,7 +368,7 @@ def S.max(a, b):
     return S.lanewise_binary(max, a, b)
 ```
 
-### Lane-wise integer rounding average
+#### Lane-wise integer rounding average
 * `vec.i8.avgr_u(a: vec.i8, b: vec.i8) -> vec.i8`
 * `vec.i16.avgr_u(a: vec.i16, b: vec.i16) -> vec.i16`
 * `vec.i32.avgr_u(a: vec.i32, b: vec.i32) -> vec.i32`
@@ -384,7 +384,7 @@ def S.avgr_u(a, b):
     return S.lanewise_binary(S.RoundingAverage, S.AsUnsigned(a), S.AsUnsigned(b))
 ```
 
-### Lane-wise integer absolute value
+#### Lane-wise integer absolute value
 * `vec.i8.abs(a: vec.i8) -> vec.i8`
 * `vec.i16.abs(a: vec.i16) -> vec.i16`
 * `vec.i32.abs(a: vec.i32) -> vec.i32`
@@ -400,7 +400,7 @@ def S.abs(a):
 
 ### Bit shifts
 
-### Left shift by scalar
+#### Left shift by scalar
 * `vec.i8.shl(a: vec.i8, y: i32) -> vec.i8`
 * `vec.i16.shl(a: vec.i16, y: i32) -> vec.i16`
 * `vec.i32.shl(a: vec.i32, y: i32) -> vec.i32`
@@ -418,7 +418,7 @@ def S.shl(a, y):
     return S.lanewise_unary(shift, a)
 ```
 
-### Right shift by scalar
+#### Right shift by scalar
 * `vec.i8.shr_s(a: vec.i8, y: i32) -> vec.i8`
 * `vec.i8.shr_u(a: vec.i8, y: i32) -> vec.i8`
 * `vec.i16.shr_s(a: vec.i16, y: i32) -> vec.i16`
@@ -550,7 +550,6 @@ Lane-wise IEEE `multiplication`.
 - `vec.f64.sqrt(a: vec.f64, b: vec.f64) -> vec.f64`
 
 Lane-wise IEEE `squareRoot`.
-
 
 ### Conversions
 
