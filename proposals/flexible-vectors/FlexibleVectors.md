@@ -480,7 +480,44 @@ rather than selecting bits controlled by a control mask vector.
 
 ### Boolean horizontal reductions
 
-_TBD_
+These operations reduce all the lanes of an integer vector to a single scalar
+0 or 1 value. A lane is considered "true" if it is non-zero.
+
+#### Any lane true
+* `vec.i8.any_true(a: vec.i8) -> i32`
+* `vec.i16.any_true(a: vec.i16) -> i32`
+* `vec.i32.any_true(a: vec.i32) -> i32`
+* `vec.i64.any_true(a: vec.i64) -> i32`
+
+These functions return 1 if any lane in `a` is non-zero, 0 otherwise.
+
+```python
+def S.any_true(a):
+    for i in range(S.Lanes):
+        if a[i] != 0:
+            return 1
+    return 0
+```
+
+#### All lanes true
+* `vec.i8.all_true(a: vec.i8) -> i32`
+* `vec.i16.all_true(a: vec.i16) -> i32`
+* `vec.i32.all_true(a: vec.i32) -> i32`
+* `vec.i64.all_true(a: vec.i64) -> i32`
+
+These functions return 1 if all lanes in `a` are non-zero, 0 otherwise.
+
+```python
+def S.all_true(a):
+    for i in range(S.Lanes):
+        if a[i] == 0:
+            return 0
+    return 1
+```
+
+### Bitmask extraction
+
+_TODO_
 
 ### Comparisons
 
